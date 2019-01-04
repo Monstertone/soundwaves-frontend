@@ -1,4 +1,4 @@
-# soundwaves-wpsimple
+# soundwaves-frontend
 
 > A Vue.js project
 
