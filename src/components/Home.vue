@@ -38,8 +38,18 @@
 
 <style>
 
+  @font-face {
+    font-family: 'six_capsregular';
+    src: url('../assets/fonts/sixcaps-webfont.woff2') format('woff2'),
+    url('../assets/fonts/sixcaps-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
-    .splash {
+  }
+
+
+
+  .splash {
      background-image: url('../assets/bg_1600x900.jpg');
      height: 100vh;
      background-size:cover;
