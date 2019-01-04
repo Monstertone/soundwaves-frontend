@@ -10,7 +10,7 @@
         <li><a href="#about">ABOUT</a></li>
       </ul>
     </header>
-    <h1>SOUNDWAVES</h1>
+    <h1 class="mainlogo">SOUNDWAVES</h1>
       <div class="main">
             <div class="left">
             <router-link to="/Create">
@@ -83,7 +83,7 @@
     font-size: 2vw;
     margin: 15px 20px;
   }
-  h1 {
+  .mainlogo {
     font-family: six_capsregular;
     font-size: 6vw;
     color:rgb(255, 253, 173);

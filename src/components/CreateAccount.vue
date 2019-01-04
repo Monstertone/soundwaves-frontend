@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Create account</h1>
+    <h1 class="create-top">Create account</h1>
     <form>
        <div class="row">
            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
@@ -133,7 +133,7 @@
 </script>
 
 <style>
- h1 {
+ .create-top {
    color: black;
    font-size: 3vh;
  }

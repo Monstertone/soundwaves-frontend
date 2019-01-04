@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Log In</h1>
+    <h1 class="login-top">Log In</h1>
     <form>
 
       <div class="form-group">
@@ -58,3 +58,12 @@
     }
   }
 </script>
+
+<style>
+
+  .login-top {
+    color: black;
+    font-size: 3vh;
+  }
+
+</style>
