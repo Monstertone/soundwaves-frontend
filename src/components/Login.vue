@@ -31,13 +31,14 @@
 
     </form>
 
-    <div>
-      <hr>
-      <h3>Don't have an account?</h3>
-      <router-link to="/Create">
-        Create Account
-      </router-link>
-    </div>
+      <div>
+        <hr>
+        <h3>Don't have an account?</h3>
+        <router-link to="/Create">
+          Create Account
+        </router-link>
+      </div>
+
   </div>
 
 
