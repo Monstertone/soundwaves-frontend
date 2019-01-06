@@ -3,7 +3,7 @@ export const actions = {
   // Context is store itself and payload is the data
   [REGISTER_USER](context, payload){
     return new Promise((resolve, reject)=>{
-      this._vm.$http.post("users/register", payload.newUser, {emulateJSON:true}).then((res)=>{
+      this._vm.$http.post("users/", payload.newUser, {emulateJSON:true}).then((res)=>{
         context.commit(REGISTER_USER, res.data)
         resolve();
       })

@@ -3,4 +3,4 @@ export const getters = {
     return Object.keys(state.user).length !== 0 ? state.user : false;
   }
 
-}
+};

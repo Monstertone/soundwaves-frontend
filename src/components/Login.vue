@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="log-div">
     <h1 class="login-top">Log In</h1>
     <form>
 
@@ -35,7 +35,7 @@
       <hr>
       <h3>Don't have an account?</h3>
       <router-link to="/Create">
-        <button id="submitbutton">Create Account</button>
+        Create Account
       </router-link>
     </div>
   </div>
