@@ -9,6 +9,10 @@
 
   <div class="log-div">
     <h1 class="create-top">Create account</h1>
+
+    <!--FORM TO CREATE ACCOUNT-->
+
+
     <form>
        <div class="row">
            <div>
@@ -42,31 +46,31 @@
                            v-model="newUser.password">
                </div>
 
-              <div>
+              <!--<div>-->
 
-                <label for="priority">Birth Date: Month</label>
-                <select
-                  id="birthMonth"
-                  class="form-control"
-                  v-model="newUser.selectedMonth">
-                  <option
-                    v-for="month in months"
-                    :selected="month == 'January'"> {{ month }}</option>
-                </select>
-                <label for="day">Day:</label>
-                <input
-                  type="integer"
-                  id="day"
-                  class="form-control input-day"
-                  v-model.number="newUser.day">
-                <label for="day">Year:</label>
-                <input
-                  type="integer"
-                  id="year"
-                  class="form-control input-year"
-                  v-model.number="newUser.year">
+                <!--<label for="priority">Birth Date: Month</label>-->
+                <!--<select-->
+                  <!--id="birthMonth"-->
+                  <!--class="form-control"-->
+                  <!--v-model="newUser.selectedMonth">-->
+                  <!--<option-->
+                    <!--v-for="month in months"-->
+                    <!--:selected="month == 'January'"> {{ month }}</option>-->
+                <!--</select>-->
+                <!--<label for="day">Day:</label>-->
+                <!--<input-->
+                  <!--type="integer"-->
+                  <!--id="day"-->
+                  <!--class="form-control input-day"-->
+                  <!--v-model.number="newUser.day">-->
+                <!--<label for="day">Year:</label>-->
+                <!--<input-->
+                  <!--type="integer"-->
+                  <!--id="year"-->
+                  <!--class="form-control input-year"-->
+                  <!--v-model.number="newUser.year">-->
 
-              </div>
+              <!--</div>-->
 
 
 
@@ -85,7 +89,7 @@
                               value="Female"
                               v-model="newUser.gender"> Female
                   </label>
-                 </div>
+               </div>
 
                <div class="form-group">
                    <label for="share_info">
@@ -115,18 +119,18 @@
    </div>
 
 
-  <p>
-    Username: {{ newUser.username }}
-  </p>
-  <p>
-    Email: {{ newUser.email }}
-    </p>
-    <p>
-      Checked: {{ newUser.optin }}
-      </p>
-      <p>
-        Birthdate: {{ newUser.selectedMonth }} {{ newUser.day }} {{ newUser.year }}
-        </p>
+  <!--<p>-->
+    <!--Username: {{ newUser.username }}-->
+  <!--</p>-->
+  <!--<p>-->
+    <!--Email: {{ newUser.email }}-->
+    <!--</p>-->
+    <!--<p>-->
+      <!--Checked: {{ newUser.optin }}-->
+      <!--</p>-->
+      <!--<p>-->
+        <!--Birthdate: {{ newUser.selectedMonth }} {{ newUser.day }} {{ newUser.year }}-->
+        <!--</p>-->
 
 
 
@@ -138,23 +142,99 @@
 
 <script>
 
+  import {REGISTER_USER} from "../../Vuex/mutation-types";
 
 
+  //
+  // export default {
+  //   data() {
+  //     return {
+  //       newUser: {
+  //         username: '',
+  //         email: '',
+  //         password: '',
+  //         optin: '',
+  //         gender: 'Male',
+  //         selectedMonth: 'January'
+  //       },
+  //         months: ['January', 'February', 'March', 'April', 'May', 'June',
+  //         'July', 'August', 'September', 'October', 'November', 'December'],
+  //         birth_date:1990-12-1,
+  //     }
+  //   }
+  // }
 
   export default {
-    data() {
+    name: 'loginreg',
+    data () {
       return {
-        newUser: {
-          username: '',
-          email: '',
-          password: '',
-          optin: '',
-          gender: 'Male',
-          selectedMonth: 'January'
+        viewing:"Login",
+        valid: false,
+        error:"",
+        newUser:{
+          isParent: false
         },
-          months: ['January', 'February', 'March', 'April', 'May', 'June',
-          'July', 'August', 'September', 'October', 'November', 'December'],
-          birth_date:1990-12-1,
+        logUser:{
+          email:"",
+          password:""
+        },
+        dialog:false,
+        emailRules: [
+          (v) => !!v || 'E-mail is required',
+          (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+        ],
+        requiredRules:[
+          (v)=> !!v || 'This field is required'
+        ]
+      }
+    },
+    computed:{
+      user(){
+        return this.$store.getters.user;
+      }
+    },
+    methods:{
+      register:function(){
+        this.error = ""
+        this.$store.dispatch(REGISTER_USER, {
+          newUser: this.newUser
+        }).then(()=>{
+          this.dialog=false;
+          this.newUser = {
+            username:"",
+            email:"",
+            password:"",
+            share_info: "",
+            gender:"",
+            birth_date: 1990-12-12,
+          };
+          // This is for efficiency so we don't have to manually recall every components created function to gather data for whatever page the user logs in from.
+          this.$router.push("/");
+        })
+          .catch((err)=>{
+            console.log(err)
+            this.error = err.data;
+          });
+      },
+      login:function(){
+        this.error=""
+        this.$store.dispatch(LOGIN_USER, {
+          logUser:this.logUser
+        }).then(()=>{
+          this.dialog=false;
+          this.logUser = {
+            email:"",
+            password:""
+          };
+          this.$store.dispatch(GET_NOTIFICATIONS);
+          console.log("running  this")
+          this.$router.push("/");
+        })
+          .catch((err)=>{
+            console.log(err)
+            this.error = err.data;
+          });
+
       }
     }
   }

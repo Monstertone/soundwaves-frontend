@@ -15,7 +15,7 @@ export const actions = {
 
   [LOGIN_USER](context, payload){
     return new Promise((resolve, reject)=>{
-      this._vm.$http.post("users/login", payload.logUser, {emulateJSON:true})
+      this._vm.$http.post("sessions/", payload.logUser, {emulateJSON:true})
         .then((res)=>{
           context.commit(REGISTER_USER, res.data)
           resolve();

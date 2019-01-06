@@ -1,7 +1,7 @@
 <template>
   <div class="log-div">
     <h1 class="login-top">Log In</h1>
-    <form>
+    <form >
 
       <div class="form-group">
         <label for="username">Username</label>
