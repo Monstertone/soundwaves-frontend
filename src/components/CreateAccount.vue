@@ -13,7 +13,7 @@
     <!--FORM TO CREATE ACCOUNT-->
 
 
-    <form>
+    <form @submit="register">
        <div class="row">
            <div>
 
@@ -106,7 +106,7 @@
 
      </div>
 
-      <button type="submit">Submit</button>
+      <button type="submit" @click="register">Submit</button>
 
      </form>
 
