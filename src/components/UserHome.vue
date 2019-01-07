@@ -11,7 +11,11 @@
  <audio v-bind:src="url" controls>
 
 
+
+
  </audio>
+
+    <button @click="getSongs()">Get Songs</button>
 
   </div>
 
