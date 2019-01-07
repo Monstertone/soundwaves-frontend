@@ -1,4 +1,4 @@
-import {VALIDATE_USER, REGISTER_USER, LOGOUT_USER} from "./mutation-types";
+import {VALIDATE_USER, REGISTER_USER, LOGOUT_USER, GET_SONGS} from "./mutation-types";
 export const mutations = {
   // We're using this mutation for both login/reg
   [REGISTER_USER](state, payload){
@@ -15,6 +15,9 @@ export const mutations = {
     state.user = {};
     state.token = "";
     localStorage.removeItem("user-token");
+  },
+  [GET_SONGS](state, payload){
+    state.songs = payload;
   }
 
 

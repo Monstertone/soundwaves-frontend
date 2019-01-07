@@ -13,6 +13,7 @@ export const store = new Vuex.Store({
     token: "",
     user:{
     },
+    songs:[],
 
   },
   mutations,

@@ -86,7 +86,7 @@
           };
           this.$store.dispatch(GET_NOTIFICATIONS);
           console.log("running  this")
-          this.$router.push("/UserHome");
+          this.$router.push("/Test");
         })
           .catch((err)=>{
             console.log(err)

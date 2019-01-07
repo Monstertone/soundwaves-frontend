@@ -52,7 +52,9 @@
           console.log('the array length is:',  songs.length);
         })
         .catch(error => console.log(error))
-    }
+
+   },
+
  }
 </script>
 

@@ -1,4 +1,7 @@
-import {VALIDATE_USER, LOGIN_USER, REGISTER_USER} from "./mutation-types";
+import {VALIDATE_USER, LOGIN_USER, REGISTER_USER, GET_SONGS} from "./mutation-types";
+const serverUrl = "http://localhost:8000";
+import axios from 'axios';
+
 export const actions = {
   // Context is store itself and payload is the data
   [REGISTER_USER](context, payload){
@@ -44,7 +47,30 @@ export const actions = {
         reject();
       }
     })
-  }
+  },
+
+  //GET SONGS FROM SERVER
+
+
+  [GET_SONGS](context) {
+
+    return new Promise((resolve, reject) => {
+
+      let token = localStorage.getItem("user-token");
+
+      if(!token){
+        reject();
+      }
+      axios.get(`${serverUrl}/random?token=${token}`).then((result) => {
+
+        context.commit(GET_SONGS, result.data);
+      })
+        .catch((err) => {
+          console.log(err)
+          reject();
+        })
+    })
+  },
 
 
 
