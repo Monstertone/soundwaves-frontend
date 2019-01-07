@@ -48,7 +48,7 @@
 
               <!--<div>-->
 
-               This section is for future development
+               <!--This section is for future development-->
 
                 <!--<label for="priority">Birth Date: Month</label>-->
                 <!--<select-->
