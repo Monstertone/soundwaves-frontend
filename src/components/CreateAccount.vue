@@ -48,6 +48,8 @@
 
               <!--<div>-->
 
+               This section is for future development
+
                 <!--<label for="priority">Birth Date: Month</label>-->
                 <!--<select-->
                   <!--id="birthMonth"-->
@@ -119,22 +121,6 @@
    </div>
 
 
-  <!--<p>-->
-    <!--Username: {{ newUser.username }}-->
-  <!--</p>-->
-  <!--<p>-->
-    <!--Email: {{ newUser.email }}-->
-    <!--</p>-->
-    <!--<p>-->
-      <!--Checked: {{ newUser.optin }}-->
-      <!--</p>-->
-      <!--<p>-->
-        <!--Birthdate: {{ newUser.selectedMonth }} {{ newUser.day }} {{ newUser.year }}-->
-        <!--</p>-->
-
-
-
-
   </div>
 
   </div>
@@ -145,24 +131,6 @@
   import {REGISTER_USER} from "../../Vuex/mutation-types";
 
 
-  //
-  // export default {
-  //   data() {
-  //     return {
-  //       newUser: {
-  //         username: '',
-  //         email: '',
-  //         password: '',
-  //         optin: '',
-  //         gender: 'Male',
-  //         selectedMonth: 'January'
-  //       },
-  //         months: ['January', 'February', 'March', 'April', 'May', 'June',
-  //         'July', 'August', 'September', 'October', 'November', 'December'],
-  //         birth_date:1990-12-1,
-  //     }
-  //   }
-  // }
 
   export default {
     name: 'loginreg',
@@ -172,7 +140,8 @@
         valid: false,
         error:"",
         newUser:{
-          isParent: false
+          isParent: false,
+          birth_date: '1990-12-12'
         },
         logUser:{
           email:"",
@@ -206,36 +175,17 @@
             password:"",
             share_info: "",
             gender:"",
-            birth_date: 1990-12-12,
+            birth_date: "1990-12-12",
           };
           // This is for efficiency so we don't have to manually recall every components created function to gather data for whatever page the user logs in from.
-          this.$router.push("/");
+          this.$router.push("/Login");
         })
           .catch((err)=>{
             console.log(err)
             this.error = err.data;
           });
       },
-      login:function(){
-        this.error=""
-        this.$store.dispatch(LOGIN_USER, {
-          logUser:this.logUser
-        }).then(()=>{
-          this.dialog=false;
-          this.logUser = {
-            email:"",
-            password:""
-          };
-          this.$store.dispatch(GET_NOTIFICATIONS);
-          console.log("running  this")
-          this.$router.push("/");
-        })
-          .catch((err)=>{
-            console.log(err)
-            this.error = err.data;
-          });
 
-      }
     }
   }
 </script>
