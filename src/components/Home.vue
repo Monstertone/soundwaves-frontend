@@ -4,7 +4,7 @@
 
     <header>
       <ul>
-        <li><a class="active" href="#home">LOG IN</a></li>
+        <li><a class="active" href="#home"><router-link to="/Login">LOG IN</router-link></a></li>
         <li><a href="#news">NEWS</a></li>
         <li><a href="#contact">CONTACT</a></li>
         <li><a href="#about">ABOUT</a></li>

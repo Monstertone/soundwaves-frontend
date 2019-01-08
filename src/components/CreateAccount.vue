@@ -1,127 +1,123 @@
 <template>
-  <div>
 
-    <div class="log-header">
-      <h1 class="create-logo">SOUNDWAVES</h1>
+  <div id="content">
 
-    </div>
-
-
-  <div class="log-div">
-    <h1 class="create-top">Create account</h1>
-
-    <!--FORM TO CREATE ACCOUNT-->
-
-
-    <<form @submit.prevent="register()">>
-       <div class="row">
-           <div>
-
-               <hr>
-               <div class="form-group">
-                 <label for="username">Username</label>
-                 <input
-                         type="text"
-                         id="username"
-                         class="form-control"
-                         v-model.lazy.trim="newUser.username">
-
-               </div>
-
-                   <label for="email">Email</label>
-                   <input
-                           type="text"
-                           id="email"
-                           class="form-control"
-                           v-model="newUser.email">
-
-               </div>
-
-               <div class="form-group">
-                   <label for="password">Password</label>
-                   <input
-                           type="password"
-                           id="password"
-                           class="form-control"
-                           v-model="newUser.password">
-               </div>
-
-              <!--<div>-->
-
-               <!--This section is for future development-->
-
-                <!--<label for="priority">Birth Date: Month</label>-->
-                <!--<select-->
-                  <!--id="birthMonth"-->
-                  <!--class="form-control"-->
-                  <!--v-model="newUser.selectedMonth">-->
-                  <!--<option-->
-                    <!--v-for="month in months"-->
-                    <!--:selected="month == 'January'"> {{ month }}</option>-->
-                <!--</select>-->
-                <!--<label for="day">Day:</label>-->
-                <!--<input-->
-                  <!--type="integer"-->
-                  <!--id="day"-->
-                  <!--class="form-control input-day"-->
-                  <!--v-model.number="newUser.day">-->
-                <!--<label for="day">Year:</label>-->
-                <!--<input-->
-                  <!--type="integer"-->
-                  <!--id="year"-->
-                  <!--class="form-control input-year"-->
-                  <!--v-model.number="newUser.year">-->
-
-              <!--</div>-->
+    <header><router-link to="/"><h1 class="create-logo">SOUNDWAVES</h1></router-link></header>
 
 
 
-               <div>
-                   <label for="male">
-                    <input
-                            type="radio"
-                            id="male"
-                            value="Male"
-                            v-model="newUser.gender"> Male
-                  </label>
-                  <label for="female">
-                      <input
-                              type="radio"
-                              id="female"
-                              value="Female"
-                              v-model="newUser.gender"> Female
-                  </label>
-               </div>
+    <main>
 
-               <div class="form-group">
-                   <label for="share_info">
-                   <input
-                           type="checkbox"
-                           id="share_info"
-                           value="optinoffers"
-                           v-model="newUser.share_info">Get Special Offers
+      <h2>Create Account</h2>
 
-                   </label>
-               </div>
+      <form @submit.prevent="register()">
+
+        <div>
+
+          <!--<label for="email">Email</label>-->
+          <input
+            class="input-form"
+            placeholder="Username"
+            type="text"
+            id="username"
+            v-model="newUser.username">
+
+        </div>
+
+        <div>
+
+          <!--<label for="email">Email</label>-->
+          <input
+            class="input-form"
+            placeholder="Email address"
+            type="text"
+            id="email"
+            v-model="newUser.email">
+
+        </div>
+        <div>
+          <!--<label for="password">Password</label>-->
+          <input
+            class="input-form"
+            placeholder="Password"
+            type="password"
+            id="password"
+            v-model="newUser.password">
+        </div>
+
+        <!--<div>-->
+
+        <!--This section is for future development-->
+
+        <!--<label for="priority">Birth Date: Month</label>-->
+        <!--<select-->
+        <!--id="birthMonth"-->
+        <!--class="form-control"-->
+        <!--v-model="newUser.selectedMonth">-->
+        <!--<option-->
+        <!--v-for="month in months"-->
+        <!--:selected="month == 'January'"> {{ month }}</option>-->
+        <!--</select>-->
+        <!--<label for="day">Day:</label>-->
+        <!--<input-->
+        <!--type="integer"-->
+        <!--id="day"-->
+        <!--class="form-control input-day"-->
+        <!--v-model.number="newUser.day">-->
+        <!--<label for="day">Year:</label>-->
+        <!--<input-->
+        <!--type="integer"-->
+        <!--id="year"-->
+        <!--class="form-control input-year"-->
+        <!--v-model.number="newUser.year">-->
+
+        <!--</div>-->
+
+        <div class="gender-select">
+          <label for="male">
+            <input
+              type="radio"
+              id="male"
+              value="Male"
+              v-model="newUser.gender"> Male
+          </label>
+          <label for="female">
+            <input
+              type="radio"
+              id="female"
+              value="Female"
+              v-model="newUser.gender"> Female
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="share_info">
+            <input
+              class="offer-box"
+              type="checkbox"
+              id="share_info"
+              value="optinoffers"
+              v-model="newUser.share_info">Get Special Offers
+
+          </label>
+
+        </div>
 
 
+        <button type="submit" class="submit-btn">SUBMIT</button>
 
-     </div>
-
-      <button type="submit">Submit</button>
-
-     </form>
-
-   <div>
-       <hr>
-       <h3>Already have an account?</h3>
-       <router-link to="/Login">
-         Log In
-       </router-link>
-   </div>
+      </form>
+      
+    <div>
+        <hr>
+        <h3>Already have an account?</h3>
+        <router-link to="/Login">
+          <button class="signup-btn">LOG IN</button>
+        </router-link>
+      </div>
 
 
-  </div>
+    </main>
 
   </div>
 </template>
@@ -190,6 +186,8 @@
   }
 </script>
 
+</script>
+
 <style>
 
   @font-face {
@@ -211,36 +209,76 @@
     margin: auto;
   }
 
- .create-top {
-   color: black;
-   font-size: 3vh;
- }
+  .input-form {
+    border: 1px solid #d9dadc;
+    width: 70%;
+    height: 30px;
+    padding: 6px 12px;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
 
- .log-header {
+  .submit-btn {
+    background-color:  rgb(1,11,23);
+    color: rgb(255, 253, 173);
+    border: 1px solid rgb(255, 253, 173);
+    border-radius: 10px;
+    width: 90px;
+    height: 35px;
+    font-size: 12px;
+    cursor: pointer;
+    cursor: hand;
+  }
 
-   padding: auto;
-   width: 100vw;
-   background-color:#173348;
- }
+  .signup-btn {
+    background-color:  rgb(1,11,23);
+    color: rgb(255, 253, 173);
+    border: 1px solid rgb(255, 253, 173);
+    border-radius: 10px;
+    height: 35px;
+    width: 90px;
+    font-size: 12px;
+    cursor: pointer;
+    cursor: hand;
+  }
 
- .log-div {
-   width: 600px;
-   margin: auto;
-   margin-top: 0;
-   background-color: #fff;
-   height: 100vh;
+  .offer-box {
 
- }
- .submit-btn {
-   width: 80px;
-   height: 30px;
-   border: 1px solid black;
-   border-radius: 5px;
- }
- .input-day {
-   width: 15px;
- }
- .input-year {
-   width: 30px;
- }
+    margin: 20px;
+}
+
+.gender-select {
+    margin-top: 20px;
+}
+
+
+  #content {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(50px, auto);
+    text-align: center;
+
+
+  }
+
+  header {
+    grid-column: 1 / 7;
+    /*background-color:#173348;*/
+    /*background-color: rgb(39, 73, 87);*/
+    background-color: rgb(1,11,23);
+  }
+
+  main {
+    grid-column: 3 / 5 ;
+    background-color: #fff;
+    height: 100vh;
+    text-align: center;
+    color:rgb(1,11,23);
+  }
+
+  hr {
+    width: 80%;
+  }
+
+
 </style>

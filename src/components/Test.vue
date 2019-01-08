@@ -16,6 +16,8 @@
 
       {{ songs[0].title }}
 
+    <p>{{ currentSong }}</p>
+
     <p ref="mySongTitle">{{ }}</p>
 
 
@@ -35,7 +37,7 @@
     name: 'songInfo',
     data(){
        return {
-
+        currentSong: ""
        }
     },
     created(){
@@ -59,7 +61,6 @@
 
         var i = 0;
 
-         console.log('songlength', this.$store.state.songs.length);
 
 
 
@@ -68,13 +69,17 @@
         audio.addEventListener('ended', function () {
           console.log('songended')
           i = ++i < self.$store.state.songs.length ? i : 0;
-          console.log(i)
+          var currentSong = self.$store.state.songs[i].title;
+          console.log('title is:', currentSong)
           audio.src = self.$store.state.songs[i].url;
           audio.play();
            }, true);
+        console.log("I is: ", i);
         audio.volume = 0.3;
         audio.loop = false;
         audio.src = this.songs[i].url;
+        console.log('songlength', this.$store.state.songs.length)
+        console.log('SONGS', this.$store.state.songs[i].title);
         console.log('audio', audio);
       }
 
@@ -93,10 +98,7 @@
 
 <style>
 
-   .albumcover {
-     width: 50px;
 
-   }
 
 
 </style>
