@@ -2,13 +2,13 @@
 
   <div id="content">
 
-   <header><router-link to="/"><h1 class="create-logo">SOUNDWAVES</h1></router-link></header>
+   <header><router-link to="/"><h1 class="login-logo">SOUNDWAVES</h1></router-link></header>
 
 
 
     <main>
 
-      <h2>Log In</h2>
+      <h3 class="login-text">Log In</h3>
 
       <form @submit.prevent="login()">
 
@@ -40,7 +40,7 @@
 
     <div>
         <hr>
-        <h3>Don't have an account?</h3>
+        <h3 class="login-text">Don't have an account?</h3>
         <router-link to="/Create">
           <button class="signup-btn">SIGN UP!</button>
         </router-link>
@@ -94,7 +94,7 @@
           };
           this.$store.dispatch(GET_NOTIFICATIONS);
           console.log("running  this")
-          this.$router.push("/Test");
+          this.$router.push("/UserHome");
         })
           .catch((err)=>{
             console.log(err)
@@ -120,7 +120,7 @@
 
 
 
-  .create-logo {
+  .login-logo {
 
     font-family: six_capsregular;
     font-size: 6vw;
@@ -145,8 +145,13 @@
     width: 90px;
     height: 35px;
     font-size: 12px;
+    margin: 10px 0;
     cursor: pointer;
     cursor: hand;
+  }
+
+  .submit-btn:hover {
+    background-color: #204154;
   }
 
   .signup-btn {
@@ -159,6 +164,10 @@
     font-size: 12px;
     cursor: pointer;
     cursor: hand;
+  }
+
+  .signup-btn:hover {
+    opacity: 0.9;
   }
   #content {
     display: grid;
@@ -187,6 +196,11 @@
   hr {
     width: 80%;
   }
+
+ .login-text {
+    font-family: "Arial";
+    color: rgb(1,11,23);
+ }
 
 
 </style>

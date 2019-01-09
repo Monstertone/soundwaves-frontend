@@ -102,6 +102,14 @@
     position:relative;
     float:right;
     border-color: rgb(255, 253, 173);
+    cursor: pointer;
+    cursor: hand;
+  }
+
+  .startbutton:hover {
+
+    background-color: rgb(1,11,23);
+    opacity: 0.7;
   }
   .front_text {
     color: rgb(255, 253, 173);

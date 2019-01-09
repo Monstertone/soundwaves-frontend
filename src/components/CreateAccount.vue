@@ -8,7 +8,7 @@
 
     <main>
 
-      <h2>Create Account</h2>
+      <h3 class="create-text">Create Account</h3>
 
       <form @submit.prevent="register()">
 
@@ -47,7 +47,7 @@
 
         <!--<div>-->
 
-        <!--This section is for future development-->
+        <!--THIS SECTION IS IN DEVELOPMENT.  FUTURE ADDITIONS HERE-->
 
         <!--<label for="priority">Birth Date: Month</label>-->
         <!--<select-->
@@ -110,7 +110,7 @@
       
     <div>
         <hr>
-        <h3>Already have an account?</h3>
+        <h3 class="create-text">Already have an account?</h3>
         <router-link to="/Login">
           <button class="signup-btn">LOG IN</button>
         </router-link>
@@ -262,9 +262,8 @@
   }
 
   header {
+
     grid-column: 1 / 7;
-    /*background-color:#173348;*/
-    /*background-color: rgb(39, 73, 87);*/
     background-color: rgb(1,11,23);
   }
 
@@ -279,6 +278,11 @@
   hr {
     width: 80%;
   }
+
+  .create-text {
+  font-family: "Arial";
+  color: rgb(1,11,23);
+}
 
 
 </style>
