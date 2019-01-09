@@ -86,7 +86,9 @@
         this.error=""
         this.$store.dispatch(LOGIN_USER, {
           logUser:this.logUser
+
         }).then(()=>{
+          console.log(this.$store);
           this.dialog=false;
           this.logUser = {
             email:"",
@@ -108,6 +110,10 @@
 </script>
 
 <style>
+
+  a {
+    text-decoration: none;
+  }
 
   @font-face {
     font-family: 'six_capsregular';
